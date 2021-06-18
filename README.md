@@ -45,8 +45,12 @@ https://groups.google.com/forum/#!topic/masstransit-discuss/bvmHfka5TVk
 docker run -d -p 8090:5672 -p 8091:15672 --hostname rabbitmq-server --name rabbitmq-server -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=password rabbitmq:3-management
 ```
 
+# Comando para parar e remover todos containers docker
 
-  
+```
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+```
 
 
 # VEJA TAMBÉM
