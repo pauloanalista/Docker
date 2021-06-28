@@ -23,26 +23,10 @@ docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \
 ### RabbitMQ
 Repositório: https://hub.docker.com/_/rabbitmq/
 
-#Levantando com usuário "guest" e senha padrão "guest"
+#Levantando com usuário "root" e senha padrão "root" (http://localhost:8080/)
 
 ```
-docker run -d --hostname rabbitmq-server --name rabbitmq-server -p 8091:15672 -p 8090:5672 rabbitmq:3-management
-```
-
-#Versão alterando o usuário padrão
-```
-docker run -d -p 8090:5672 -p 8091:15672 --hostname rabbit-mq-server --name rabbit-mq-server rabbitmq:3.7-management -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=password rabbitmq:3.7-management
-```
-
-- Solução para resolver a conexão com o rabbitmq em um container docker
-https://groups.google.com/forum/#!topic/masstransit-discuss/bvmHfka5TVk
-
-> Problem solved...I was making two instances!
-
-> For those who are interested by any chance, you need to expose both ports 5672 and 15672
-  
-```
-docker run -d -p 8090:5672 -p 8091:15672 --hostname rabbitmq-server --name rabbitmq-server -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=password rabbitmq:3-management
+docker run -d -p 8000:5672 -p 8080:15672 --hostname rabbit-mq-server --name rabbit-mq-server -e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=root rabbitmq:3.7-management
 ```
 
 # Comando para parar e remover todos containers docker
