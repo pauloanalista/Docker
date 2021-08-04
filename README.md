@@ -23,10 +23,10 @@ docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \
 ### RabbitMQ
 Repositório: https://hub.docker.com/_/rabbitmq/
 
-#Levantando com usuário "root" e senha padrão "root" (http://localhost:8080/)
+#Levantando com usuário "guest" e senha padrão "guest" (http://localhost:8080/)
 
 ```
-docker run -d -p 8000:5672 -p 8080:15672 --hostname rabbit-mq-server --name rabbit-mq-server -e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=root rabbitmq:3.7-management
+docker run -d --hostname qsti-rabbit --name qsti-rabbit -e RABBITMQ_DEFAULT_USER=guest -e RABBITMQ_DEFAULT_PASS=guest -p 8080:15672 -p 5672:5672 -v "rabbitmq_log:/var/log/rabbitmq" -v "rabbitmq_data:/var/lib/rabbitmq" rabbitmq:3.7-management
 ```
 
 # Comando para parar e remover todos containers docker
