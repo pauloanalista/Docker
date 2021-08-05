@@ -29,12 +29,20 @@ Repositório: https://hub.docker.com/_/rabbitmq/
 docker run -d --hostname qsti-rabbit --name qsti-rabbit -e RABBITMQ_DEFAULT_USER=guest -e RABBITMQ_DEFAULT_PASS=guest -p 8080:15672 -p 5672:5672 -v "rabbitmq_log:/var/log/rabbitmq" -v "rabbitmq_data:/var/lib/rabbitmq" rabbitmq:3.7-management
 ```
 
+### Redis
+```
+docker run --name qsti-redis -d -p "6379:6379" redis redis-server --requirepass Redis@dmin 
+```
+
 # Comando para parar e remover todos containers docker
 
 ```
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 ```
+
+
+
 
 
 # VEJA TAMBÉM
